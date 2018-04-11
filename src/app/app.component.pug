@@ -1,73 +1,70 @@
-// The content below is only a placeholder and can be replaced.
+table.table.table-striped
+  thead
+    tr
+      th id
+      th text
+      th important
+      th done
+      th color
+      th created
+      th updated
+      th
 
-form(action="localhost:3000/users" method="post")
-  table.table.table-striped
-    thead
-      tr
-        th id
-        th text
-        th important
-        th done
-        th color
-        th created
-        th updated
-        th
-
-    tbody
-      tr
-        td #
-        td
-          input.form-control(type="text" name="text" id="text" ,[(ngModel)]="adat.text")
-        td  
-          input.form-control(type="text" name="important" id="important" ,[(ngModel)]="adat.important")
-        td
-          input.form-control(type="text" name="done" id="done" ,[(ngModel)]="adat.done")
-        td
-          input.form-control(type="text" name="color" id="color" ,[(ngModel)]="adat.color")
-        td -
-        td -
-        td
-          .btn-group
-            button.btn.btn-success(type="button" ,(click)="create()") Bevitel
-      tr(*ngFor="let x of datas")
-        td {{x.id}}
-        td {{x.text}}
-        td {{x.important}}
-        td {{x.done}}
-        td {{x.color}}
-        td {{x.delete}}
-        td {{x.update}}
-        td 
-          .btn-group
-            button.btn.btn-danger(type="button" ,(click)="deleteRow(x.id)") Törlés
-            button.btn.btn-primary(type='button', data-toggle='modal', data-target='#exampleModal' ,
-            (click)="modalChange(x.id)") Edit Row 
-      
+  tbody
+    tr
+      td #
+      td
+        input.form-control(type="text" name="text" id="text" ,[(ngModel)]="adat.text")
+      td  
+        input.form-control(type="text" name="important" id="important" ,[(ngModel)]="adat.important")
+      td
+        input.form-control(type="text" name="done" id="done" ,[(ngModel)]="adat.done")
+      td
+        input.form-control(type="text" name="color" id="color" ,[(ngModel)]="adat.color")
+      td -
+      td -
+      td
+        .btn-group
+          button.btn.btn-success(type="button" ,(click)="create()") Bevitel
+    tr(*ngFor="let x of datas")
+      td {{x.id}}
+      td {{x.text}}
+      td {{x.important}}
+      td {{x.done}}
+      td {{x.color}}
+      td {{x.delete}}
+      td {{x.update}}
+      td 
+        .btn-group
+          button.btn.btn-danger(type="button" ,(click)="deleteRow(x.id)") Törlés
+          button.btn.btn-primary(type='button', data-toggle='modal', data-target='#exampleModal' ,
+          (click)="modalChange(x.id)") Edit Row 
+    
 // Button trigger modal
 
 // Modal
 #exampleModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
-  .modal-dialog(role='document')
-    .modal-content
-      .modal-header
-        h5#exampleModalLabel.modal-title Edit Datas
-        button.close(type='button', data-dismiss='modal', aria-label='Close')
-          span(aria-hidden='true') ×
-      .modal-body
-        label(for="id") ID
-        input.form-control(type="text" name="id" id="id" disabled ,[(ngModel)]="modal.id")
-        br
-        label(for="text") Text
-        input.form-control(type="text" name="text" id="text" ,[(ngModel)]="modal.text")
-        br
-        label(for="important") Important?
-        input.form-control(type="text" name="important" id="important" ,[(ngModel)]="modal.important")
-        br
-        label(for="done") Done?
-        input.form-control(type="text" name="done" id="done" ,[(ngModel)]="modal.done")
-        br
-        label(for="color") Color
-        input.form-control(type="text" name="color" id="color" ,[(ngModel)]="modal.color")
-      .modal-footer
-        button.btn.btn-secondary(type='button', data-dismiss='modal') Close
-        button.btn.btn-primary(type='button' data-dismiss='modal', (click)="update()") Save changes
+.modal-dialog(role='document')
+  .modal-content
+    .modal-header
+      h5#exampleModalLabel.modal-title Edit Datas
+      button.close(type='button', data-dismiss='modal', aria-label='Close')
+        span(aria-hidden='true') ×
+    .modal-body
+      label(for="id") ID
+      input.form-control(type="text" name="id" id="id" disabled ,[(ngModel)]="modal.id")
+      br
+      label(for="text") Text
+      input.form-control(type="text" name="text" id="text" ,[(ngModel)]="modal.text")
+      br
+      label(for="important") Important?
+      input.form-control(type="text" name="important" id="important" ,[(ngModel)]="modal.important")
+      br
+      label(for="done") Done?
+      input.form-control(type="text" name="done" id="done" ,[(ngModel)]="modal.done")
+      br
+      label(for="color") Color
+      input.form-control(type="text" name="color" id="color" ,[(ngModel)]="modal.color")
+    .modal-footer
+      button.btn.btn-secondary(type='button', data-dismiss='modal') Close
+      button.btn.btn-primary(type='button' data-dismiss='modal', (click)="update()") Save changes
